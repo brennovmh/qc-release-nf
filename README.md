@@ -251,7 +251,7 @@ Contribuições são bem-vindas. Sugestões, melhorias e correções podem ser e
 
 ## Licença
 
-Definir conforme necessidade do projeto (MIT, GPL, etc.)
+Este projeto está licenciado sob os termos da licença MIT
 
 ---
 
