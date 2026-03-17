@@ -1,4 +1,4 @@
-# QC Release NF
+# QC_CHECK
 
 Pipeline em Nextflow para controle de qualidade de dados de sequenciamento (NGS) antes da análise secundária.
 
