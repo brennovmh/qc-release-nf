@@ -1,0 +1,11 @@
+work/
+results/
+.nextflow*
+data/
+*.fastq.gz
+*.fq.gz
+*.html
+*.zip
+*.json
+*.tsv
+*.pdf

@@ -1,0 +1,3 @@
+sample,fastq_1,fastq_2
+1252SP8,/home/bioinfo/qc_release_nf/data/1252SP8_S6_L001_R1_001.fastq.gz,/home/bioinfo/qc_release_nf/data/1252SP8_S6_L001_R2_001.fastq.gz
+2920SP3,/home/bioinfo/qc_release_nf/data/2920SP3_S12_L001_R1_001.fastq.gz,/home/bioinfo/qc_release_nf/data/2920SP3_S12_L001_R2_001.fastq.gz
