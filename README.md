@@ -161,7 +161,7 @@ Amostra apta para análise secundária
 Amostra que requer avaliação manual  
 
 **FAIL**  
-Amostra não apta para análise automática  
+Amostra não apta para análise secundária  
 
 ---
 
