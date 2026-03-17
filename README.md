@@ -69,29 +69,57 @@ qc_release_nf/
 ├── docker/
 │   └── weasyprint/
 │       └── Dockerfile
+```
 
+---
 
-Formato do arquivo de entrada
+## Formato do arquivo de entrada
 
 O pipeline utiliza um arquivo CSV com o seguinte formato:
 
+```csv
 sample,fastq_1,fastq_2
 sample1,/path/sample1_R1.fastq.gz,/path/sample1_R2.fastq.gz
 sample2,/path/sample2_R1.fastq.gz,/path/sample2_R2.fastq.gz
-Instalação
-Clonar o repositório
+```
+
+---
+
+## Instalação
+
+### Clonar o repositório
+
+```bash
 git clone git@github.com:brennovmh/qc-release-nf.git
 cd qc-release-nf
-Preparação do ambiente
-Construir o container para geração de PDF
+```
+
+---
+
+## Preparação do ambiente
+
+### Construir o container para geração de PDF
+
+```bash
 docker build -t qc-weasyprint:1.0 docker/weasyprint
-Execução do pipeline
-Execução básica
+```
+
+---
+
+## Execução do pipeline
+
+### Execução básica
+
+```bash
 nextflow run main.nf \
   -profile docker \
   --input samplesheet.csv \
   --outdir results
-Execução com relatórios do Nextflow
+```
+
+### Execução com relatórios do Nextflow
+
+```bash
 nextflow run main.nf \
   -profile docker \
   --input samplesheet.csv \
@@ -99,131 +127,135 @@ nextflow run main.nf \
   -with-report results/execution_report.html \
   -with-timeline results/execution_timeline.html \
   -with-trace results/execution_trace.txt
-Reexecução usando cache
+```
+
+### Reexecução usando cache
+
+```bash
 nextflow run main.nf -resume
-Saídas geradas
+```
+
+---
+
+## Saídas geradas
 
 Após a execução, os principais resultados estarão em:
 
-results/fastqc/
+- `results/fastqc/`  
+- `results/fastp/`  
+- `results/summary/qc_summary.tsv`  
+- `results/report/run_qc_report.html`  
+- `results/report/run_qc_report.pdf`  
+- `results/multiqc/multiqc_report.html`  
 
-results/fastp/
+---
 
-results/summary/qc_summary.tsv
-
-results/report/run_qc_report.html
-
-results/report/run_qc_report.pdf
-
-results/multiqc/multiqc_report.html
-
-Interpretação dos resultados
+## Interpretação dos resultados
 
 As amostras são classificadas automaticamente em:
 
-PASS
-Amostra apta para análise secundária
+**PASS**  
+Amostra apta para análise secundária  
 
-REVIEW
-Amostra que requer avaliação manual
+**REVIEW**  
+Amostra que requer avaliação manual  
 
-FAIL
-Amostra não apta para análise automática
+**FAIL**  
+Amostra não apta para análise automática  
 
-Critérios de avaliação
+---
+
+## Critérios de avaliação
 
 A classificação é baseada em métricas como:
 
-número total de reads
-
-taxa de bases com qualidade Q30
-
-percentual de adaptadores
-
-módulos FAIL do FastQC
-
-módulos WARN do FastQC
+- número total de reads  
+- taxa de bases com qualidade Q30  
+- percentual de adaptadores  
+- módulos FAIL do FastQC  
+- módulos WARN do FastQC  
 
 Os limiares podem ser ajustados conforme o tipo de ensaio.
 
-Relatórios
-Relatório principal
+---
 
-Arquivo: results/report/run_qc_report.html
+## Relatórios
+
+### Relatório principal
+
+Arquivo: `results/report/run_qc_report.html`
 
 Contém:
 
-resumo da corrida
+- resumo da corrida  
+- distribuição de PASS, REVIEW e FAIL  
+- tabela consolidada por amostra  
+- interpretação automática  
 
-distribuição de PASS, REVIEW e FAIL
+### Relatório em PDF
 
-tabela consolidada por amostra
-
-interpretação automática
-
-Relatório em PDF
-
-Arquivo: results/report/run_qc_report.pdf
+Arquivo: `results/report/run_qc_report.pdf`
 
 Versão estática do relatório HTML, adequada para compartilhamento e documentação.
 
-MultiQC
+### MultiQC
 
-Arquivo: results/multiqc/multiqc_report.html
+Arquivo: `results/multiqc/multiqc_report.html`
 
 Relatório técnico detalhado das métricas geradas pelas ferramentas.
 
-Boas práticas
+---
 
-Sempre revisar amostras classificadas como REVIEW
+## Boas práticas
 
-Verificar consistência com MultiQC
+- Sempre revisar amostras classificadas como REVIEW  
+- Verificar consistência com MultiQC  
+- Ajustar parâmetros conforme tipo de biblioteca  
+- Evitar decisões automatizadas sem validação técnica  
 
-Ajustar parâmetros conforme tipo de biblioteca
+---
 
-Evitar decisões automatizadas sem validação técnica
+## Problemas comuns
 
-Problemas comuns
+**MultiQC não encontrado**  
+Garantir uso do profile docker  
 
-MultiQC não encontrado
-Garantir uso do profile docker
+**Erro na geração de PDF**  
+Verificar se a imagem qc-weasyprint foi construída corretamente  
 
-Erro na geração de PDF
-Verificar se a imagem qc-weasyprint foi construída corretamente
+---
 
-Limitações
+## Limitações
 
-Pipeline focado em FASTQ paired-end
+- Pipeline focado em FASTQ paired-end  
+- Critérios de QC ainda genéricos  
+- Não substitui avaliação técnica especializada  
 
-Critérios de QC ainda genéricos
+---
 
-Não substitui avaliação técnica especializada
+## Próximos desenvolvimentos
 
-Próximos desenvolvimentos
+- Relatórios individuais por amostra  
+- Integração com LIMS  
+- Ajuste dinâmico de thresholds  
+- Interface gráfica  
+- Integração com pipelines downstream  
 
-Relatórios individuais por amostra
+---
 
-Integração com LIMS
-
-Ajuste dinâmico de thresholds
-
-Interface gráfica
-
-Integração com pipelines downstream
-
-Contribuição
+## Contribuição
 
 Contribuições são bem-vindas. Sugestões, melhorias e correções podem ser enviadas via pull request.
 
-Licença
+---
+
+## Licença
 
 Definir conforme necessidade do projeto (MIT, GPL, etc.)
 
-Autor
+---
 
-Brenno Martins
+## Autor
+
+Brenno Martins  
 Bioinformata
-
-
-
-
