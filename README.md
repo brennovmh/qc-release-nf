@@ -1,4 +1,3 @@
-````markdown
 # QC Release NF
 
 Pipeline em Nextflow para controle de qualidade de dados de sequenciamento (NGS) antes da análise secundária.
@@ -30,22 +29,22 @@ O pipeline tem como objetivo fornecer um fluxo reprodutível e padronizado para 
 O pipeline segue as etapas abaixo:
 
 1. FastQC  
-   Avaliação inicial da qualidade dos arquivos FASTQ  
+   Avaliação inicial da qualidade dos arquivos FASTQ
 
 2. fastp  
-   Geração de métricas adicionais, como taxa de Q30 e conteúdo de adaptadores  
+   Geração de métricas adicionais, como taxa de Q30 e conteúdo de adaptadores
 
 3. QC_GATE  
-   Classificação automática das amostras com base em critérios definidos  
+   Classificação automática das amostras com base em critérios definidos
 
 4. QC_VISUAL_REPORT  
-   Geração de relatório visual consolidado em HTML  
+   Geração de relatório visual consolidado em HTML
 
 5. QC_REPORT_PDF  
-   Conversão do relatório HTML em PDF  
+   Conversão do relatório HTML em PDF
 
 6. MultiQC  
-   Consolidação dos resultados técnicos em um relatório único  
+   Consolidação dos resultados técnicos em um relatório único
 
 ---
 
@@ -53,9 +52,9 @@ O pipeline segue as etapas abaixo:
 
 Certifique-se de ter os seguintes requisitos instalados:
 
-- Nextflow >= 23  
-- Docker  
-- Git  
+- Nextflow >= 23
+- Docker
+- Git
 
 ---
 
@@ -70,8 +69,6 @@ qc_release_nf/
 ├── docker/
 │   └── weasyprint/
 │       └── Dockerfile
-````
-
 ---
 
 ## Formato do arquivo de entrada
