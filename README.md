@@ -1,5 +1,3 @@
-Claro. Aqui está o README completo em um único bloco, pronto para você copiar e colar direto no arquivo `README.md`.
-
 ````markdown
 # QC Release NF
 
