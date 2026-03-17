@@ -75,11 +75,6 @@ qc_release_nf/
 
 O pipeline utiliza um arquivo CSV com o seguinte formato:
 
-```csv
-sample,fastq_1,fastq_2
-sample1,/path/sample1_R1.fastq.gz,/path/sample1_R2.fastq.gz
-sample2,/path/sample2_R1.fastq.gz,/path/sample2_R2.fastq.gz
-```
 
 ---
 
@@ -215,9 +210,6 @@ Relatório técnico detalhado das métricas geradas pelas ferramentas.
 
 ## Problemas comuns
 
-Erro de autenticação no GitHub
-Utilizar SSH ou token em vez de senha
-
 MultiQC não encontrado
 Garantir uso do profile docker
 
@@ -259,18 +251,8 @@ Definir conforme necessidade do projeto (MIT, GPL, etc.)
 ## Autor
 
 Brenno Martins
-Bioinformata | Genômica Translacional | NGS
+Bioinformata 
 
-````
 
----
 
-Depois disso, é só salvar, rodar:
 
-```bash
-git add README.md
-git commit -m "Update README with full documentation"
-git push
-````
-
-Se quiser, no próximo passo eu posso te ajudar a deixar esse repositório com nível “nf-core style”, com badge, versionamento e até DOI.
